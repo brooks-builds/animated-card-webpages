@@ -6,6 +6,7 @@ use yew_router::{history::Location, prelude::RouterScopeExt};
 #[derive(Debug, Deserialize)]
 struct QueryParams {
     name: String,
+    message: String,
 }
 
 pub struct Card {
@@ -30,24 +31,44 @@ impl Component for Card {
     fn view(&self, _ctx: &Context<Self>) -> Html {
         let style_str = self.style.get_class_name().to_owned();
         html! {
-            <section class={ &style_str }>
+            <div class={ &style_str }>
                 <style>
                     { self.style.get_style_str() }
                 </style>
-                <h1>{ "Merry Christmas " }<span>{ &self.query_params.name }</span></h1>
-            </section>
+                <section>
+                    <h1>{ "Merry Christmas " }<span>{ &self.query_params.name }</span></h1>
+                    <p>{ &self.query_params.message }</p>
+                    <div></div> // hack for spacing with flex
+                    <div></div>
+                </section>
+            </div>
         }
     }
 }
 
 fn style() -> String {
     r#"
+        section {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         span {
             color: green;
         }
 
         h1 {
-            text-align: center;
+            margin-top: 1rem;
+            font-size: 5rem;
+        }
+
+        p {
+            font-size: 3rem;
         }
     "#
     .into()

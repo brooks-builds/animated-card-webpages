@@ -31,7 +31,6 @@ name = "christmas_2021"
 version = "0.1.0"
 dependencies = [
  "gloo 0.5.0",
- "gloo-console",
  "gloo-utils",
  "serde",
  "serde_derive",
