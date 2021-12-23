@@ -3,7 +3,7 @@
 ## Plan
 
 - [x] Spin up a Yew site
-- [ ] Experiment with Canvas
+- [x] Experiment with Canvas - result is not to use canvas with Yew for ongoing game loop
 - [ ] Design the card
 - [ ] ???
 - [ ] Profit
