@@ -11,6 +11,8 @@ pub enum IconType {
 #[derive(Debug, PartialEq, Properties)]
 pub struct Props {
     pub icon_type: IconType,
+    pub top: String,
+    pub left: String,
 }
 
 #[function_component(Icon)]
@@ -18,7 +20,6 @@ pub fn icon(props: &Props) -> Html {
     let style = Style::new(style_string(props)).unwrap();
     let style_name = style.get_class_name().to_owned();
     let style_string = style.get_style_str().to_owned();
-    let icon_type = "tree";
 
     html! {
         <div id="icon" class={&style_name}>
@@ -34,7 +35,7 @@ pub fn icon(props: &Props) -> Html {
     }
 }
 
-fn style_string(_props: &Props) -> String {
+fn style_string(props: &Props) -> String {
     format!(
         "
         svg {{
@@ -43,9 +44,10 @@ fn style_string(_props: &Props) -> String {
             fill: green;
             width: 200px;
             height: 200px;
-            bottom: 50px;
-            left: 200px;
+            top: {};
+            left: {};
         }}
-    "
+    ",
+        &props.top, &props.left,
     )
 }

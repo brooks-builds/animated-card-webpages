@@ -57,7 +57,11 @@ impl Component for Card {
                     <div></div> // hack for spacing with flex
                     <div></div>
                 </section>
-                <Icon icon_type={IconType::Tree} /> // a tree
+                <Icon icon_type={IconType::Tree} top={"50%"} left={"25%"} />
+                <Icon icon_type={IconType::Tree} top={"42%"} left={"65%"} />
+                <Icon icon_type={IconType::Tree} top={"70%"} left={"70%"} />
+                <Icon icon_type={IconType::Tree} top={"81%"} left={"10%"} />
+                <Icon icon_type={IconType::Tree} top={"39%"} left={"18%"} />
             </div>
         }
     }
