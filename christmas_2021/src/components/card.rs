@@ -5,8 +5,18 @@ use yew_router::{history::Location, prelude::RouterScopeExt};
 
 #[derive(Debug, Deserialize)]
 struct QueryParams {
+    #[serde(default = "default_name")]
     name: String,
+    #[serde(default = "default_message")]
     message: String,
+}
+
+fn default_name() -> String {
+    "Recipient Name".to_owned()
+}
+
+fn default_message() -> String {
+    "To customize, set the query params 'name' and 'message'. For example /?name=John Doe&message=Merry Christmas!".to_owned()
 }
 
 pub struct Card {

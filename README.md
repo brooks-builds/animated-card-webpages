@@ -13,6 +13,7 @@
 ### User Stories
 - [x] As a card viewer, I want to see my name
 - [x] As a card viewer, I want to see the message
+- [x] As a sender, I want to see a default message and name when previewing the card
 - [ ] As a card viewer, I want to see the ground
 - [ ] As a card viewer, I want to see the sky
 - [ ] As a card viewer, I want to see a tree
