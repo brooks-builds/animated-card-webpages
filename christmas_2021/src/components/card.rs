@@ -1,3 +1,6 @@
+use crate::components::icon::IconType;
+
+use super::icon::Icon;
 use super::rectangle::Rectangle;
 use serde::Deserialize;
 use stylist::Style;
@@ -54,6 +57,7 @@ impl Component for Card {
                     <div></div> // hack for spacing with flex
                     <div></div>
                 </section>
+                <Icon icon_type={IconType::Tree} /> // a tree
             </div>
         }
     }
@@ -80,10 +84,12 @@ fn style() -> String {
         .title h1 {
             margin-top: 1rem;
             font-size: 5rem;
+            color: white;
         }
 
         .title p {
             font-size: 3rem;
+            color: white;
         }
     "#
     .into()
