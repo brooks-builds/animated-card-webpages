@@ -46,7 +46,8 @@ impl Component for Card {
                 <style>
                     { self.style.get_style_str() }
                 </style>
-                <Rectangle color={"rgb(0, 40, 0)"} />
+                <Rectangle color={"rgb(0, 0, 40)"} z_index={100} height={"50vh"} />
+                <Rectangle color={"rgb(0, 40, 0)"} z_index={10} height={"100vh"}/>
                 <section class={"title"}>
                     <h1>{ "Merry Christmas " }<span>{ &self.query_params.name }</span></h1>
                     <p>{ &self.query_params.message }</p>
@@ -68,7 +69,8 @@ fn style() -> String {
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            position: absolute
+            position: absolute;
+            z-index: 255;
         }
 
         .title span {
