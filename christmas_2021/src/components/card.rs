@@ -1,3 +1,4 @@
+use super::rectangle::Rectangle;
 use serde::Deserialize;
 use stylist::Style;
 use yew::prelude::*;
@@ -45,7 +46,8 @@ impl Component for Card {
                 <style>
                     { self.style.get_style_str() }
                 </style>
-                <section>
+                <Rectangle color={"rgb(0, 40, 0)"} />
+                <section class={"title"}>
                     <h1>{ "Merry Christmas " }<span>{ &self.query_params.name }</span></h1>
                     <p>{ &self.query_params.message }</p>
                     <div></div> // hack for spacing with flex
@@ -58,7 +60,7 @@ impl Component for Card {
 
 fn style() -> String {
     r#"
-        section {
+        section.title {
             display: flex;
             height: 100vh;
             width: 100vw;
@@ -66,18 +68,19 @@ fn style() -> String {
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
+            position: absolute
         }
 
-        span {
+        .title span {
             color: green;
         }
 
-        h1 {
+        .title h1 {
             margin-top: 1rem;
             font-size: 5rem;
         }
 
-        p {
+        .title p {
             font-size: 3rem;
         }
     "#
