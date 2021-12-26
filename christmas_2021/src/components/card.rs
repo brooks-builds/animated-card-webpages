@@ -1,4 +1,4 @@
-use crate::components::icon::IconType;
+use crate::{components::icon::IconType, utilities::random_between};
 
 use super::icon::Icon;
 use super::rectangle::Rectangle;
@@ -26,6 +26,20 @@ fn default_message() -> String {
 pub struct Card {
     query_params: QueryParams,
     style: Style,
+}
+
+impl Card {
+    fn create_forest(&self, tree_count: u8) -> Vec<Html> {
+        let mut trees = vec![];
+
+        for _ in 0..tree_count {
+            let top = format!("{}%", random_between(39.0, 84.0));
+            let left = format!("{}%", random_between(-1.0, 88.0));
+            trees.push(html! {<Icon icon_type={IconType::Tree} top={top} left={left} />});
+        }
+
+        trees
+    }
 }
 
 impl Component for Card {
@@ -57,11 +71,7 @@ impl Component for Card {
                     <div></div> // hack for spacing with flex
                     <div></div>
                 </section>
-                <Icon icon_type={IconType::Tree} top={"50%"} left={"25%"} />
-                <Icon icon_type={IconType::Tree} top={"42%"} left={"65%"} />
-                <Icon icon_type={IconType::Tree} top={"70%"} left={"70%"} />
-                <Icon icon_type={IconType::Tree} top={"81%"} left={"10%"} />
-                <Icon icon_type={IconType::Tree} top={"39%"} left={"18%"} />
+                { self.create_forest(25) }
             </div>
         }
     }

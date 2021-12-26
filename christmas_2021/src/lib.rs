@@ -1,5 +1,6 @@
 mod components;
 mod routes;
+mod utilities;
 
 use routes::{switch, Route};
 use yew::prelude::*;

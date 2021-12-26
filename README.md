@@ -17,7 +17,7 @@
 - [x] As a card viewer, I want to see the ground
 - [x] As a card viewer, I want to see the sky
 - [x] As a card viewer, I want to see a tree
-- [ ] As a card viewer, I want to see a forest
+- [x] As a card viewer, I want to see a forest
 - [ ] As a card viewer, I want to see a star
 - [ ] As a card viewer, I want to see all the stars
 - [ ] As a card viewer, I want to see a snowflake
