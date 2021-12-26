@@ -40,6 +40,18 @@ impl Card {
 
         trees
     }
+
+    fn create_stars(&self, star_count: u8) -> Vec<Html> {
+        let mut stars = vec![];
+
+        for _ in 0..star_count {
+            let top = "10%";
+            let left = "10%";
+            stars.push(html! { <Icon icon_type={ IconType::Star } top={ top } left = { left } /> })
+        }
+
+        stars
+    }
 }
 
 impl Component for Card {
@@ -72,6 +84,7 @@ impl Component for Card {
                     <div></div>
                 </section>
                 { self.create_forest(25) }
+                { self.create_stars(1) }
             </div>
         }
     }
