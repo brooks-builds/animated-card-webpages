@@ -55,6 +55,19 @@ impl Card {
 
         stars
     }
+
+    fn create_snow(&self, snowflake_count: u8) -> Vec<Html> {
+        let mut snowflakes = vec![];
+
+        for _ in 0..snowflake_count {
+            let top = format!("{}%", random_between(-5.0, -50.0));
+            let left = format!("{}%", random_between(0.0, 98.0));
+            let size = random_between(5.0, 50.0);
+            snowflakes.push(html! { <Icon icon_type={ IconType::Snowflake } top={ top } left={ left } size={ size } /> });
+        }
+
+        snowflakes
+    }
 }
 
 impl Component for Card {
@@ -88,7 +101,7 @@ impl Component for Card {
                 </section>
                 { self.create_forest(25) }
                 { self.create_stars(255) }
-                <Icon icon_type={ IconType::Snowflake } top={ "50%" } left = { "50%" } size = { 50.0 } />
+                { self.create_snow(20) }
             </div>
         }
     }
@@ -122,6 +135,17 @@ fn style() -> String {
             font-size: 3rem;
             color: white;
         }
+
+        @keyframes snowfall {
+            from {
+              transform: translateY(0%);
+            }
+          
+            to {
+              transform: translateY(100vh);
+            }
+          }
+          
     "#
     .into()
 }

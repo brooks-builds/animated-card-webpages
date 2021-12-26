@@ -21,6 +21,6 @@
 - [x] As a card viewer, I want to see a star
 - [x] As a card viewer, I want to see all the stars
 - [x] As a card viewer, I want to see a snowflake
-- [ ] As a card viewer, I want to see the snowflake fall
-- [ ] As a card viewer, I want to see the repeat falling after it finishes
+- [x] As a card viewer, I want to see the snowflake fall
+- [x] As a card viewer, I want to see the repeat falling after it finishes
 - [ ] As a card viewer, I want to see lots of snow falling
