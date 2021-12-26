@@ -88,6 +88,7 @@ impl Component for Card {
                 </section>
                 { self.create_forest(25) }
                 { self.create_stars(255) }
+                <Icon icon_type={ IconType::Snowflake } top={ "50%" } left = { "50%" } size = { 50.0 } />
             </div>
         }
     }
