@@ -13,6 +13,7 @@ pub struct Props {
     pub icon_type: IconType,
     pub top: String,
     pub left: String,
+    pub size: f64,
 }
 
 #[function_component(Icon)]
@@ -44,8 +45,8 @@ fn style_string(props: &Props) -> String {
         svg.tree {{
             z-index: 200;
             fill: green;
-            width: 200px;
-            height: 200px;
+            width: {size}px;
+            height: {size}px;
             top: {top};
             left: {left};
         }}
@@ -53,13 +54,14 @@ fn style_string(props: &Props) -> String {
         svg.star {{
             z-index: 190;
             fill: white;
-            width: 25px;
-            height: 25px;
+            width: {size}px;
+            height: {size}px;
             top: {top};
             left: {left};
         }}
     ",
         top = &props.top,
         left = &props.left,
+        size = &props.size,
     )
 }

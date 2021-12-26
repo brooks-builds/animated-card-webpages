@@ -35,7 +35,9 @@ impl Card {
         for _ in 0..tree_count {
             let top = format!("{}%", random_between(39.0, 84.0));
             let left = format!("{}%", random_between(-1.0, 88.0));
-            trees.push(html! {<Icon icon_type={IconType::Tree} top={top} left={left} />});
+            trees.push(
+                html! {<Icon icon_type={IconType::Tree} top={top} left={left} size={ 200.0 } />},
+            );
         }
 
         trees
@@ -45,9 +47,10 @@ impl Card {
         let mut stars = vec![];
 
         for _ in 0..star_count {
-            let top = "10%";
-            let left = "10%";
-            stars.push(html! { <Icon icon_type={ IconType::Star } top={ top } left = { left } /> })
+            let top = format!("{}%", random_between(0.0, 48.0));
+            let left = format!("{}%", random_between(0.0, 98.0));
+            let size = random_between(3.0, 10.0);
+            stars.push(html! { <Icon icon_type={ IconType::Star } top={ top } left = { left } size = { size } /> })
         }
 
         stars
@@ -84,7 +87,7 @@ impl Component for Card {
                     <div></div>
                 </section>
                 { self.create_forest(25) }
-                { self.create_stars(1) }
+                { self.create_stars(255) }
             </div>
         }
     }
